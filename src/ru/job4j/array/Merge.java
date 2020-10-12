@@ -16,8 +16,8 @@ public class Merge {
         int i = 0;
         int j = 0;
         for (int k = 0; k < rsl.length; k++) {
-            if (copyLeft[i] <= right[j]) {
-                rsl[k] = left[i];
+            if (copyLeft[i] <= copyRight[j]) {
+                rsl[k] = copyLeft[i];
                 i++;
             } else {
                 rsl[k] = copyRight[j];
