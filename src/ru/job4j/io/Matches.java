@@ -7,18 +7,26 @@ public class Matches {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int matches = 11;
-        int[] player = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
-        int i = 0;
+        int counter = 1;
         while (true) {
-            System.out.print("Игрок №" + player[i] + ", возьмите спички от 1 до 3 ");
+            System.out.print("Игрок №" + counter + ", возьмите спички от 1 до 3 ");
             int num = Integer.valueOf(input.nextLine());
+            if (num < 1 || num > 3) {
+                System.out.println("Введено некорректное значение, попробуйте ещё раз");
+                continue;
+            } else {
                 matches -= num;
                 System.out.println("На столе осталось " + matches + " спичек");
                 if (matches == 0) {
-                    System.out.println("Игрок №" + player[i] + " победил");
+                    System.out.println("Игрок №" + counter + " победил");
                     break;
                 }
-                i++;
+                if (counter == 1) {
+                    counter = 2;
+                } else {
+                    counter = 1;
+                }
             }
         }
     }
+}
